@@ -65,8 +65,12 @@ def _textwrap_overrun(文字列断片配列: list[dict[str, bool]], 行表示幅
                     新しい文字列.append(文字)
                     行幅 += 2
                 else:
-                    新しい文字列.append('\n')
-                    新しい文字列.append(文字)
+                    if 文字 == '。':
+                        新しい文字列.append(文字)
+                        新しい文字列.append('\n')
+                    else:
+                        新しい文字列.append('\n')
+                        新しい文字列.append(文字)
                     行幅 = 2
         else:
             if (行表示幅 - 行幅) < 2:
